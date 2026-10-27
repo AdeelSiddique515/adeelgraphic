@@ -1,0 +1,1865 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="adeelgraphic — Adeel Awan, Graphic Designer & Video Editor. 300+ projects designed: logo & branding, social media design, print & brand systems, reels, promotional videos and ad campaigns for brands that refuse to blend in. Real work on the page: design projects shown in full, 23 playable videos, five animated wedding websites with live preview links and a 30-design Christmas campaign." />
+    <link rel="icon" href="data:," />
+    <title>adeelgraphic — Adeel Awan · Graphic Designer &amp; Video Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-2: #f6f6f3;
+        --ink: #161613;
+        --ink-soft: #55534c;
+        --line: #e3e1d9;
+        --accent: #c5221a;
+        --accent-ink: #ffffff;
+        --card: #ffffff;
+        --shadow: 0 18px 40px rgba(18, 18, 16, 0.10);
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0; background: var(--bg); color: var(--ink);
+        font-family: "Archivo", system-ui, sans-serif;
+        font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; }
+      a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+      .wrap { width: min(1240px, 100% - 40px); margin: 0 auto; }
+      .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+
+      /* Scroll progress */
+      .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 200; }
+
+      /* ---------- Nav ---------- */
+      header.site-nav {
+        position: sticky; top: 0; z-index: 60;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+        transition: box-shadow 0.3s ease;
+      }
+      header.site-nav.scrolled { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+      .nav-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+      .wordmark { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.3rem; letter-spacing: -0.03em; text-decoration: none; white-space: nowrap; }
+      .wordmark .mark {
+        display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px;
+        background: var(--accent); color: #fff; font-size: 0.95rem; font-weight: 900; letter-spacing: -0.04em;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .wordmark:hover .mark { transform: rotate(-8deg) scale(1.08); }
+      .wordmark .dot { color: var(--accent); }
+      nav.links { margin-left: auto; display: flex; gap: 26px; align-items: center; }
+      nav.links a { text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); position: relative; }
+      nav.links a::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0; background: var(--accent); transition: width 0.25s ease; }
+      nav.links a:hover { color: var(--ink); }
+      nav.links a:hover::after { width: 100%; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--accent); color: var(--accent-ink);
+        font-weight: 700; text-decoration: none; border: 0; cursor: pointer;
+        padding: 12px 22px; border-radius: 999px; font-size: 0.95rem;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        will-change: transform;
+      }
+      .btn:hover { box-shadow: var(--shadow); }
+      .btn.ghost { background: transparent; color: inherit; border: 1.5px solid currentColor; }
+      .btn.small { padding: 9px 18px; font-size: 0.88rem; }
+      .menu-btn { display: none; margin-left: auto; background: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 8px 16px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .mobile-menu { display: none; border-top: 1px solid var(--line); padding: 14px 0 20px; }
+      .mobile-menu a { display: block; padding: 10px 0; font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+      .mobile-menu.open { display: block; animation: menudrop 0.3s ease both; }
+      @keyframes menudrop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+      /* ---------- Hero (clean white stage) ---------- */
+      .hero {
+        background: var(--bg); color: var(--ink);
+        position: relative; overflow: hidden;
+        padding: 64px 0 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero-inner { position: relative; }
+      .hero-kicker { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; color: var(--ink-soft); margin-bottom: 26px; }
+      .hero-kicker .avail { color: var(--accent); font-weight: 500; }
+      .avail::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 8px; }
+      h1.hero-title {
+        font-size: clamp(2.5rem, 5.6vw, 4.4rem);
+        line-height: 1.02; letter-spacing: -0.03em; font-weight: 900;
+        margin: 0 0 24px; max-width: 16ch;
+      }
+      h1.hero-title em { font-style: italic; font-weight: 800; color: var(--accent); }
+      h1.hero-title .w { display: inline-block; animation: wordrise 0.9s cubic-bezier(0.22, 0.9, 0.3, 1) both; animation-delay: calc(var(--i) * 70ms); }
+      @keyframes wordrise { from { opacity: 0; transform: translateY(0.6em) rotate(2deg); } to { opacity: 1; transform: none; } }
+      .hero-sub { font-size: clamp(1.05rem, 1.8vw, 1.25rem); color: var(--ink-soft); max-width: 58ch; margin: 0 0 34px; animation: fadeup 0.9s ease 0.55s both; }
+      .hero-sub b { color: var(--ink); }
+      .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; animation: fadeup 0.9s ease 0.7s both; }
+      @keyframes fadeup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+      .hero-sectors { color: var(--ink-soft); font-size: 0.95rem; margin: 6px 0 0; animation: fadeup 0.9s ease 0.85s both; }
+      .hero-sectors b { color: var(--ink); font-weight: 700; }
+
+      /* Template greeting & tool-icon strip */
+      .hero-greet { font-size: clamp(1.15rem, 2.4vw, 1.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; animation: fadeup 0.8s ease 0.05s both; }
+      .hero-greet .lime { color: var(--accent); }
+      .tool-strip { display: flex; gap: 16px; color: #a9a69c; margin-bottom: 24px; animation: fadeup 0.8s ease 0.15s both; }
+      .tool-strip svg { width: 21px; height: 21px; }
+      
+      /* Hero top: professional intro copy + portrait card */
+      .hero-top { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); gap: 52px; align-items: center; }
+      .hero-portrait {
+        margin: 0; position: relative;
+        background: var(--bg-2); border: 1px solid var(--line); border-radius: 28px;
+        padding: 60px 18px 66px; box-shadow: var(--shadow);
+        animation: fadeup 0.9s ease 0.3s both;
+      }
+      .hero-portrait img { width: 100%; height: auto; animation: portraitfloat 7s ease-in-out infinite; }
+      @keyframes portraitfloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+      .portrait-chip {
+        position: absolute; z-index: 1; white-space: nowrap;
+        background: #ffffff; border: 1px solid var(--line); border-radius: 999px;
+        padding: 9px 18px; color: var(--ink);
+      }
+      .portrait-chip-top { top: 16px; left: 16px; }
+      .portrait-chip-bottom {
+        bottom: 16px; left: 50%; transform: translateX(-50%);
+        color: var(--accent); font-weight: 700; letter-spacing: 0.18em;
+        box-shadow: 0 10px 24px rgba(18, 18, 16, 0.10);
+      }
+      @media (max-width: 900px) {
+        .hero-portrait { width: 100%; max-width: 440px; margin: 0 auto; }
+      }
+      .hero-note { grid-column: 1 / -1; color: var(--ink-soft); font-size: 0.82rem; margin: 4px 0 40px; max-width: 72ch; }
+      .hero-note b { color: var(--ink); }
+
+      /* Hero work collage — top logo & branding projects (Canva cases + Behance logos) */
+      .hero-showcase {
+        position: relative; margin-top: 54px;
+        display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 14px;
+        animation: fadeup 1s ease 1s both;
+      }
+      .show-card {
+        border-radius: 18px; overflow: hidden; position: relative; min-height: 210px;
+        display: flex; flex-direction: column; justify-content: flex-end; gap: 9px;
+        padding: 24px; text-decoration: none; color: #fff; isolation: isolate;
+        transition: box-shadow 0.35s ease, filter 0.35s ease;
+      }
+      .show-card::after {
+        content: ""; position: absolute; inset: 0; z-index: 0;
+        background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.09) 0 10px, transparent 10px 20px);
+        transition: transform 0.6s ease;
+      }
+      .show-card:hover { filter: brightness(1.1); box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
+      .show-card:hover::after { transform: translateX(16px); }
+      .show-card > * { position: relative; z-index: 1; }
+      .show-card .show-initial {
+        position: absolute; top: 10px; right: 18px; z-index: 0;
+        font-size: 5.2rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1;
+        color: rgba(255,255,255,0.16);
+      }
+      .show-card.tall .show-initial { font-size: 8.5rem; top: 18px; }
+      .show-card .show-sector {
+        align-self: flex-start;
+        font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.45); padding: 4px 10px; border-radius: 999px; color: rgba(255,255,255,0.95);
+      }
+      .show-card .show-name { font-size: 1.55rem; font-weight: 900; letter-spacing: -0.025em; line-height: 1.05; text-shadow: 0 2px 14px rgba(0,0,0,0.25); }
+      .show-card.tall .show-name { font-size: clamp(2.1rem, 4vw, 3rem); }
+      .show-card .show-desc { color: rgba(255,255,255,0.85); font-size: 0.93rem; line-height: 1.45; max-width: 34ch; }
+      .show-card.tall .show-desc { font-size: 1rem; max-width: 36ch; }
+      .show-card .show-tag {
+        align-self: flex-start;
+        background: rgba(10,10,10,0.45); color: #fff;
+        font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase;
+        padding: 6px 11px; border-radius: 999px;
+      }
+      .show-card .show-tag .sl-arrow { color: #ffb3ab; font-weight: 900; }
+      .show-card.tall { grid-row: span 2; min-height: 434px; }
+
+      .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; border-top: 1px solid var(--line); padding: 28px 0 46px; position: relative; }
+      .stat b { display: block; font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; }
+      .stat b .plus { color: var(--accent); }
+      .stat span { color: var(--ink-soft); font-size: 0.9rem; }
+
+      /* ---------- Marquee ---------- */
+      .marquee { border-block: 1px solid var(--line); background: var(--bg-2); overflow: hidden; padding: 14px 0; }
+      .marquee-track { display: flex; gap: 0; width: max-content; animation: scrollx 28s linear infinite; }
+      .marquee:hover .marquee-track { animation-play-state: paused; }
+      .marquee-track span { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.02em; padding: 0 18px; white-space: nowrap; }
+      .marquee-track span i { color: var(--accent); font-style: normal; padding-right: 36px; }
+      @keyframes scrollx { to { transform: translateX(-50%); } }
+
+      /* ---------- Sections ---------- */
+      section { padding: 92px 0 10px; }
+      .sec-head { display: flex; flex-wrap: wrap; align-items: end; gap: 18px; margin-bottom: 14px; }
+      .sec-head h2 { font-size: clamp(1.75rem, 3.8vw, 2.6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
+      .sec-head .mono { color: var(--accent); margin-bottom: 10px; }
+      .sec-lede { color: var(--ink-soft); max-width: 64ch; margin: 0 0 36px; font-size: 1.05rem; }
+      .sec-lede b { color: var(--ink); }
+      .sec-lede a { color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+      .sec-lede a:hover { text-decoration: none; }
+
+      /* Trust strip */
+      .trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 8px 0 10px; }
+      .trust-card {
+        display: flex; gap: 16px; align-items: center; text-decoration: none;
+        border: 1px solid var(--line); border-radius: 18px; background: var(--card);
+        padding: 20px 22px; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      .trust-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--ink); }
+      .trust-card .t-badge {
+        flex: none; width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+        font-weight: 900; font-size: 1.05rem; color: #fff; background: var(--ink);
+      }
+      .trust-card.be .t-badge { background: #1769ff; }
+      .trust-card.cv .t-badge { background: #7d2ae8; }
+      .trust-card.ig .t-badge { background: var(--accent); }
+      .trust-card b { display: block; font-size: 1.02rem; letter-spacing: -0.01em; }
+      .trust-card span { color: var(--ink-soft); font-size: 0.88rem; }
+
+      /* ---------- Filters ---------- */
+      .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; position: sticky; top: 64px; z-index: 40; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); padding: 12px 0; }
+      .chip {
+        font: inherit; font-weight: 600; font-size: 0.9rem; cursor: pointer;
+        border: 1.5px solid var(--line); background: transparent; color: var(--ink-soft);
+        padding: 9px 18px; border-radius: 999px; transition: all 0.2s ease;
+      }
+      .chip:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-1px); }
+      .chip.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+      /* ---------- Work groups ---------- */
+      .work-group { margin-top: 52px; }
+      .work-group.hide { display: none; }
+      .group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; border-top: 2px solid var(--ink); padding-top: 18px; margin-bottom: 24px; }
+      .group-head h3 { font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 900; letter-spacing: -0.025em; margin: 0; }
+      .group-head .g-num { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 0.85rem; }
+      .group-head .g-count { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+      .group-head p { flex-basis: 100%; color: var(--ink-soft); margin: 2px 0 0; max-width: 66ch; font-size: 0.99rem; }
+
+      /* Detailed case cards (Canva client work) */
+      .cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .case {
+        background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+        overflow: hidden; display: flex; flex-direction: column;
+        transition: box-shadow 0.3s ease;
+        transform-style: preserve-3d;
+      }
+      .case:hover { box-shadow: var(--shadow); }
+      .case.hide { display: none; }
+      .seq-title.hide, .seq-strip.hide { display: none; }
+      .case-cover {
+        height: 92px; position: relative; overflow: hidden; flex: none;
+        display: flex; align-items: flex-end; padding: 14px 24px;
+      }
+      .case-cover::after {
+        content: ""; position: absolute; inset: 0;
+        background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.09) 0 10px, transparent 10px 20px);
+      }
+      .case-cover .cc-mono {
+        position: relative; z-index: 1; color: #fff; font-weight: 900; font-size: 1.7rem; letter-spacing: -0.03em;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      }
+      .case-cover .cc-sector {
+        position: absolute; top: 12px; right: 16px; z-index: 1; color: rgba(255,255,255,0.92);
+        font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.45); padding: 4px 9px; border-radius: 999px;
+      }
+      .case-body { padding: 24px 30px 26px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+      .case-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+      .case-num { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--accent); }
+      .case h4 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; line-height: 1.1; }
+      .case dl { margin: 0; display: grid; gap: 10px; }
+      .case dt { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+      .case dd { margin: 2px 0 0; font-size: 0.98rem; }
+      .case .src-link { margin-top: auto; padding-top: 4px; font-weight: 700; font-size: 0.93rem; color: var(--accent); text-decoration: none; }
+      .case .src-link:hover { text-decoration: underline; }
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 2px; }
+      .tag { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; color: var(--ink-soft); }
+
+      /* Reels video-style case */
+      .reel-case { grid-column: 1 / -1; flex-direction: row !important; }
+      .reel-visual {
+        flex: none; width: 218px; margin: 26px 0 26px 26px; border-radius: 26px;
+        background: #141412; border: 1px solid var(--line);
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+        padding: 30px 16px; text-decoration: none; color: #f4f2ea; position: relative; overflow: hidden;
+        aspect-ratio: 9 / 14.5; align-self: center;
+      }
+      .reel-visual::before {
+        content: ""; position: absolute; inset: 0;
+        background: radial-gradient(circle at 50% 30%, rgba(217,43,31,0.4) 0%, transparent 62%);
+      }
+      .reel-visual > * { position: relative; }
+      .reel-visual .rv-kicker { font-family: "IBM Plex Mono", monospace; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244,242,234,0.65); text-align: center; }
+      .reel-visual .rv-play {
+        width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #fff;
+        display: grid; place-items: center; font-size: 1.35rem; padding-left: 4px;
+        box-shadow: 0 12px 30px rgba(217,43,31,0.45);
+        animation: playpulse 2.4s ease-in-out infinite;
+      }
+      @keyframes playpulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }
+      .reel-visual:hover .rv-play { animation: none; transform: scale(1.12); }
+      .reel-visual .rv-title { font-weight: 900; font-size: 1.25rem; letter-spacing: -0.02em; text-align: center; line-height: 1.15; }
+      .reel-visual .rv-bar { width: 82%; height: 4px; border-radius: 99px; background: rgba(244,242,234,0.22); overflow: hidden; }
+      .reel-visual .rv-bar i { display: block; height: 100%; width: 38%; background: var(--accent); border-radius: 99px; }
+      .reel-visual .rv-time { display: flex; justify-content: space-between; width: 82%; font-family: "IBM Plex Mono", monospace; font-size: 0.6rem; color: rgba(244,242,234,0.6); }
+      .reel-visual .rv-open { font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #ff8a7d; }
+      .reel-body { flex: 1; }
+      .seq-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 18px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--card); }
+      .seq-step { padding: 20px 22px; }
+      .seq-step + .seq-step { border-left: 1px solid var(--line); }
+      .seq-step .n { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 0.78rem; }
+      .seq-step b { display: block; font-size: 1.02rem; font-weight: 800; margin: 6px 0 4px; }
+      .seq-step p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+      .seq-title { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 30px 0 12px; }
+
+      /* Cover palettes (flat brand colours, one per project family) */
+      .pal-1 { background: #b3231a; } .pal-2 { background: #20513f; } .pal-3 { background: #8a5a17; }
+      .pal-4 { background: #2e4a5e; } .pal-5 { background: #5e2e4a; } .pal-6 { background: #3c3c38; }
+      .pal-7 { background: #1769ff; } .pal-8 { background: #7d2ae8; }
+
+      /* Linked project cards (Behance library) */
+      .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .proj {
+        display: flex; flex-direction: column; text-decoration: none;
+        background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+        overflow: hidden;
+        transition: box-shadow 0.28s ease, border-color 0.28s ease;
+        transform-style: preserve-3d;
+      }
+      .proj:hover { box-shadow: var(--shadow); border-color: var(--ink); }
+      .proj.hide { display: none; }
+      .proj-shot .pc-cat {
+        position: absolute; left: 16px; top: 12px; z-index: 1; color: #fff;
+        font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.45); padding: 3px 8px; border-radius: 999px;
+        background: rgba(10,10,10,0.45);
+      }
+      /* Real design screenshot topping a project / case card */
+      .proj-shot { aspect-ratio: 4 / 3; position: relative; overflow: hidden; flex: none; background: var(--bg-2); }
+      .proj-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      /* Static preview tile for Behance projects without a local screenshot —
+         always renders, no third-party embed needed */
+      .proj-tile { aspect-ratio: 4 / 3; position: relative; overflow: hidden; flex: none; display: flex; flex-direction: column; justify-content: space-between; padding: 14px 16px; color: #fff; }
+      .proj-tile::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.09) 0 10px, transparent 10px 20px); }
+      .proj-tile .pc-cat { position: absolute; left: 16px; top: 12px; z-index: 1; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.45); padding: 3px 8px; border-radius: 999px; background: rgba(10,10,10,0.45); }
+      .proj-tile .pt-mono { position: relative; z-index: 1; font-size: 3.1rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: rgba(255,255,255,0.94); margin-top: 30px; text-shadow: 0 2px 14px rgba(0,0,0,0.22); }
+      .proj-tile .pt-title { position: relative; z-index: 1; font-weight: 800; font-size: 0.98rem; line-height: 1.3; max-width: 26ch; }
+      .proj-tile .pt-arrow { color: rgba(255,255,255,0.78); font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+      .case-photo { position: relative; overflow: hidden; flex: none; }
+      .case-photo img { width: 100%; height: 250px; object-fit: cover; }
+      .case-photo .cc-sector {
+        position: absolute; top: 12px; right: 16px; z-index: 1; color: rgba(255,255,255,0.95);
+        font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.45); padding: 4px 9px; border-radius: 999px;
+        background: rgba(10,10,10,0.45);
+      }
+      /* Portrait video stills sit in a side rail at close to native width,
+         so the real still is never stretched across a full-width banner */
+      .case-media { flex-direction: row; }
+      .case-media .case-photo { flex: 0 0 42%; }
+      .case-media .case-photo img { position: absolute; inset: 0; height: 100%; }
+      /* Hero showcase tile carrying a real design photo */
+      .show-card .show-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+      .show-card.has-img::before {
+        content: ""; position: absolute; inset: 0; z-index: 0;
+        background: linear-gradient(180deg, rgba(8,8,8,0.02) 30%, rgba(8,8,8,0.62) 100%);
+      }
+      /* Reels case visual carrying the real reels screenshot */
+      .reel-photo { padding: 0; justify-content: flex-end; gap: 14px; }
+      .reel-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .reel-photo .rv-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,8,0.05) 40%, rgba(8,8,8,0.6) 100%); }
+      .reel-photo .rv-open { margin-bottom: 20px; background: rgba(10,10,10,0.55); padding: 6px 11px; border-radius: 999px; }
+      a.proj-body { text-decoration: none; color: inherit; }
+      .proj-cover { height: 74px; position: relative; overflow: hidden; flex: none; }
+      .proj-cover::after {
+        content: ""; position: absolute; inset: 0;
+        background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.09) 0 10px, transparent 10px 20px);
+        transition: transform 0.6s ease;
+      }
+      .proj:hover .proj-cover::after { transform: translateX(14px); }
+      .proj-cover .pc-num {
+        position: absolute; right: 14px; bottom: 6px; z-index: 1;
+        color: rgba(255,255,255,0.85); font-weight: 900; font-size: 1.5rem; letter-spacing: -0.03em;
+      }
+      .proj-cover .pc-cat {
+        position: absolute; left: 16px; top: 12px; z-index: 1; color: #fff;
+        font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.45); padding: 3px 8px; border-radius: 999px;
+      }
+      .proj-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .proj h4 { font-size: 1.14rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; line-height: 1.25; }
+      .proj p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+      .proj .p-meta { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+      .proj .p-src { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+      .proj .p-arrow { color: var(--accent); font-weight: 900; font-size: 1.05rem; transition: transform 0.25s ease; }
+      .proj:hover .p-arrow { transform: translate(3px, -3px); }
+      .proj-sub { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 26px 0 14px; }
+      .proj-sub:first-child { margin-top: 0; }
+
+      /* ---------- Christmas gallery ---------- */
+      .xmas-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+      .xmas-featured figure, .gal figure { margin: 0; border-radius: 16px; overflow: hidden; cursor: zoom-in; position: relative; background: var(--bg-2); aspect-ratio: 1 / 1; }
+      .xmas-featured img, .gal img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+      .xmas-featured figure:hover img, .gal figure:hover img { transform: scale(1.07); }
+      .gal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+      .xmas-featured figure:focus-visible, .gal figure:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+      .gal figcaption, .xmas-featured figcaption {
+        position: absolute; left: 10px; bottom: 10px; background: rgba(10,10,10,0.72); color: #fff;
+        font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.1em;
+        padding: 4px 9px; border-radius: 999px;
+      }
+
+      /* ---------- Videos (18 real reels & clips, all start muted) ---------- */
+      .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .vtile { margin: 0; position: relative; border-radius: 20px; overflow: hidden; background: #0e0e0c; aspect-ratio: 9 / 16; isolation: isolate; box-shadow: 0 14px 34px rgba(10,10,10,0.14); transition: box-shadow 0.4s ease; }
+      .vtile video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: transform 0.55s cubic-bezier(0.22, 0.9, 0.3, 1); }
+      /* Playing video zooms in gently and lifts — the focused tile is unmistakable */
+      .vtile.playing { box-shadow: 0 28px 58px rgba(10,10,10,0.32); }
+      .vtile.playing video { transform: scale(1.07); }
+      .vtile:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+      .vtile .v-shade { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent, rgba(5,5,5,0.8)); }
+      .v-play { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; background: transparent; border: 0; padding: 0; cursor: pointer; }
+      .v-play .vp-circle {
+        width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+        background: rgba(10,10,10,0.55); border: 1.5px solid rgba(255,255,255,0.6); backdrop-filter: blur(3px);
+        transition: transform 0.25s ease, background 0.25s ease;
+      }
+      .v-play:hover .vp-circle, .v-play:focus-visible .vp-circle { transform: scale(1.12); background: var(--accent); }
+      .vtile.playing .v-play { display: none; }
+      .v-meta { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; display: flex; align-items: flex-end; gap: 10px; padding: 14px; color: #fff; }
+      .v-titles { flex: 1; min-width: 0; display: grid; gap: 2px; }
+      .v-name { font-weight: 800; font-size: 0.98rem; line-height: 1.25; letter-spacing: -0.01em; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+      .v-sub { font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
+      .v-sound {
+        flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+        background: rgba(10,10,10,0.6); color: #fff; border: 1.5px solid rgba(255,255,255,0.5); backdrop-filter: blur(3px);
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      .v-sound:hover { transform: scale(1.08); }
+      .v-sound .ic-on { display: none; }
+      .vtile.unmuted .v-sound { background: var(--accent); border-color: var(--accent); }
+      .vtile.unmuted .v-sound .ic-on { display: block; }
+      .vtile.unmuted .v-sound .ic-off { display: none; }
+      .vid-note { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; margin-top: 18px; color: var(--ink-soft); font-size: 0.95rem; }
+      .vid-note .vn-badge { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; color: var(--ink); }
+
+      /* ---------- Wedding websites (live animated Canva examples) ---------- */
+      .wed-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .wed-card {
+        display: flex; flex-direction: column; text-decoration: none;
+        background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+        overflow: hidden; transition: box-shadow 0.28s ease, border-color 0.28s ease;
+      }
+      .wed-card:hover { box-shadow: var(--shadow); border-color: var(--ink); }
+      .wed-tile { aspect-ratio: 4 / 3; position: relative; overflow: hidden; flex: none; display: flex; flex-direction: column; justify-content: space-between; padding: 14px 16px; color: #fff; }
+      .wed-tile::after { content: none; }
+      .wed-tile .pc-cat { position: absolute; left: 16px; top: 12px; z-index: 1; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.45); padding: 3px 8px; border-radius: 999px; background: rgba(10,10,10,0.45); }
+      .wed-tile .pt-mono { position: relative; z-index: 1; font-size: 2.1rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: rgba(255,255,255,0.94); margin-top: 30px; text-shadow: 0 2px 14px rgba(0,0,0,0.22); }
+      .wed-tile .pt-title { position: relative; z-index: 1; font-weight: 800; font-size: 0.98rem; line-height: 1.3; max-width: 26ch; }
+      .wed-card.editable { border-color: var(--accent); border-width: 1.5px; }
+      .wed-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .wed-body h4 { font-size: 1.14rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; line-height: 1.25; }
+      .wed-body p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+      .wed-open { margin-top: auto; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-weight: 800; font-size: 0.95rem; color: var(--accent); }
+      .wed-open .p-arrow { font-weight: 900; font-size: 1.05rem; transition: transform 0.25s ease; }
+      .wed-card:hover .wed-open .p-arrow { transform: translate(3px, -3px); }
+
+      /* ---------- New wedding sites (walkthrough video + live preview link, one card) ---------- */
+      .wed-subhead { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; margin: 28px 0 14px; }
+      .wed-new-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 6px; }
+      .wed-new {
+        display: flex; gap: 20px; background: var(--card); border: 1px solid var(--line);
+        border-radius: 20px; padding: 20px;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      }
+      .wed-new:hover { box-shadow: var(--shadow); border-color: var(--ink); transform: translateY(-4px); }
+      .wed-new .vtile { flex: 0 0 172px; }
+      .wed-new-body { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+      .wed-new-body .mono { color: var(--accent); }
+      .wed-new-body h4 { font-size: 1.22rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; line-height: 1.2; }
+      .wed-new-body p { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+      .wed-new-body p b { color: var(--ink); }
+      .wed-new-body .btn { margin-top: auto; align-self: flex-start; }
+      @media (max-width: 900px) { .wed-new-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 560px) {
+        .wed-new { gap: 14px; padding: 14px; }
+        .wed-new .vtile { flex-basis: 118px; }
+        .wed-new .v-meta { padding: 10px; }
+        .wed-new .v-name { font-size: 0.82rem; }
+        .wed-new .v-play .vp-circle { width: 52px; height: 52px; }
+        .wed-new .v-sound { width: 36px; height: 36px; }
+      }
+
+      /* ---------- Design Projects (13 Drive projects, real preview crops) ---------- */
+      .np-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .np-card {
+        display: flex; flex-direction: column;
+        background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+        overflow: hidden; transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      }
+      .np-card:hover { box-shadow: var(--shadow); border-color: var(--ink); transform: translateY(-4px); }
+      .np-shot { aspect-ratio: 10 / 9; position: relative; overflow: hidden; flex: none; background: var(--bg-2); }
+      .np-shot::after {
+        content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        background: linear-gradient(105deg, transparent 42%, rgba(255,255,255,0.28) 50%, transparent 58%);
+        transform: translateX(-130%); transition: transform 0.7s ease;
+      }
+      .np-card:hover .np-shot::after { transform: translateX(130%); }
+      .np-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.55s ease; }
+      .np-card:hover .np-shot img { transform: scale(1.04); }
+      .np-shot .pc-cat {
+        position: absolute; left: 16px; top: 12px; z-index: 1; color: #fff;
+        font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.45); padding: 3px 8px; border-radius: 999px;
+        background: rgba(10,10,10,0.55);
+      }
+      .np-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .np-body h4 { font-size: 1.14rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; line-height: 1.25; }
+      .np-body p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+      .np-view {
+        margin-top: auto; padding: 12px 0 0; background: none; border: 0; font: inherit; cursor: pointer;
+        display: flex; justify-content: space-between; align-items: center; gap: 10px;
+        font-weight: 800; font-size: 0.95rem; color: var(--accent); text-align: left;
+      }
+      .np-view .p-arrow { font-weight: 900; font-size: 1.05rem; transition: transform 0.25s ease; }
+      .np-card:hover .np-view .p-arrow { transform: translateY(3px); }
+      @media (max-width: 1020px) { .np-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 560px) { .np-grid { grid-template-columns: 1fr; } }
+
+      /* ---------- Full-design viewer (whole tall image, scrollable) ---------- */
+      .fullview { position: fixed; inset: 0; z-index: 110; background: rgba(8, 8, 8, 0.96); display: none; flex-direction: column; }
+      .fullview.open { display: flex; animation: fadeup 0.25s ease both; }
+      .fv-bar { display: flex; gap: 12px; align-items: center; justify-content: space-between; color: #fff; padding: 14px 18px; flex: none; }
+      .fv-title { font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; }
+      .fv-bar button { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 9px 18px; font: inherit; font-weight: 700; cursor: pointer; flex: none; }
+      .fv-bar button:hover { background: var(--accent); border-color: var(--accent); }
+      .fv-scroll { overflow-y: auto; flex: 1; padding: 4px 16px 34px; -webkit-overflow-scrolling: touch; }
+      .fv-scroll img { width: min(680px, 94vw); margin: 0 auto; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+
+      /* ---------- Services ---------- */
+      .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .service { border: 1px solid var(--line); border-radius: 20px; padding: 30px; background: var(--card); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .service:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+      .service .num { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 0.85rem; }
+      .service h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin: 10px 0 8px; }
+      .service p { color: var(--ink-soft); margin: 0 0 16px; }
+      .service ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+      .service li { padding-left: 20px; position: relative; font-size: 0.96rem; }
+      .service li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+      .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 44px; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+      .step { padding: 26px 24px; background: var(--bg-2); }
+      .step + .step { border-left: 1px solid var(--line); }
+      .step b { display: block; font-size: 1.12rem; font-weight: 800; margin: 8px 0 6px; }
+      .step p { margin: 0; color: var(--ink-soft); font-size: 0.93rem; }
+      .step .n { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 0.8rem; }
+
+      /* ---------- FAQ ---------- */
+      .faq { display: grid; gap: 12px; max-width: 860px; }
+      details { border: 1px solid var(--line); border-radius: 16px; background: var(--card); padding: 4px 24px; }
+      summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 16px 0; list-style: none; display: flex; justify-content: space-between; gap: 14px; }
+      summary::-webkit-details-marker { display: none; }
+      summary::after { content: "+"; color: var(--accent); font-weight: 900; font-size: 1.3rem; line-height: 1; transition: transform 0.3s ease; }
+      details[open ] summary::after { content: "–"; }
+      details p { margin: 0 0 18px; color: var(--ink-soft); animation: fadeup 0.35s ease both; }
+
+      /* ---------- About ---------- */
+      .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 44px; }
+      .about-grid p.big { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; line-height: 1.4; margin: 0 0 20px; letter-spacing: -0.01em; }
+      .about-grid p { color: var(--ink-soft); margin: 0 0 16px; }
+      .about-side { border: 1px solid var(--line); border-radius: 20px; padding: 28px; background: var(--card); height: fit-content; }
+      .about-side h3 { margin: 0 0 14px; font-size: 1.05rem; font-weight: 800; }
+      .about-side dl { margin: 0; display: grid; gap: 12px; }
+      .about-side dt { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+      .about-side dd { margin: 2px 0 0; font-weight: 600; }
+      .tool-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+      /* ---------- Contact ---------- */
+      .contact-box { background: var(--bg-2); color: var(--ink); border: 1px solid var(--line); border-radius: 24px; padding: clamp(30px, 5vw, 54px); margin-bottom: 90px; position: relative; overflow: hidden; }
+      .contact-box > * { position: relative; }
+      .contact-box h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 14px; }
+      .contact-box h2 em { font-style: italic; color: var(--accent); }
+      .contact-box > p { color: var(--ink-soft); max-width: 58ch; margin: 0 0 34px; }
+      .contact-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 44px; }
+      .contact-links { display: grid; gap: 4px; align-content: start; }
+      .contact-links a { display: flex; justify-content: space-between; gap: 12px; padding: 15px 2px; border-bottom: 1px solid var(--line); text-decoration: none; font-weight: 700; font-size: 1.05rem; transition: padding-left 0.25s ease, color 0.25s ease; }
+      .contact-links a span { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; font-weight: 400; align-self: center; }
+      .contact-links a:hover { color: var(--accent); padding-left: 10px; }
+      form.quote { display: grid; gap: 14px; }
+      form.quote label { display: grid; gap: 6px; font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; }
+      form.quote input, form.quote select, form.quote textarea {
+        font: inherit; font-family: "Archivo", sans-serif; text-transform: none; letter-spacing: 0;
+        background: #ffffff; color: var(--ink);
+        border: 1px solid var(--line); border-radius: 12px;
+        padding: 12px 14px; width: 100%;
+      }
+      form.quote select option { color: #121210; }
+      form.quote textarea { min-height: 96px; resize: vertical; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .form-note { font-size: 0.85rem; opacity: 0.7; margin: 0; }
+
+      footer { border-top: 1px solid var(--line); padding: 30px 0 44px; }
+      .foot-thanks { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 20px; }
+      .foot-thanks span { color: var(--ink-soft); font-weight: 600; }
+      .foot { display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; justify-content: space-between; color: var(--ink-soft); font-size: 0.9rem; }
+      .foot a { font-weight: 600; text-decoration: none; }
+      .foot a:hover { color: var(--accent); }
+
+      /* ---------- Reveal animation ----------
+         Content is fully visible by default. JS adds .rv-init (hidden state)
+         only to elements still below the fold, then .rv-in plays the entrance —
+         so no content can ever be trapped invisible if JS/observer fails. */
+      .rv-init { opacity: 0; transform: translateY(34px) scale(0.985); filter: blur(3px); }
+      .rv-in { animation: rise 0.85s cubic-bezier(0.22, 0.9, 0.3, 1) both; animation-delay: calc(var(--d, 0) * 80ms); }
+      @keyframes rise { from { opacity: 0; transform: translateY(34px) scale(0.985); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+
+      /* ---------- Lightbox ---------- */
+      .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(8, 8, 8, 0.94); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 16px; padding: 20px; }
+      .lightbox.open { display: flex; animation: fadeup 0.25s ease both; }
+      .lightbox img { max-width: min(88vw, 760px); max-height: 78vh; border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+      .lb-bar { display: flex; gap: 12px; align-items: center; color: #fff; flex-wrap: wrap; justify-content: center; }
+      .lb-bar button { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 9px 18px; font: inherit; font-weight: 700; cursor: pointer; }
+      .lb-bar button:hover { background: var(--accent); border-color: var(--accent); }
+      .lb-count { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+      @media (max-width: 1020px) {
+        .proj-grid { grid-template-columns: repeat(2, 1fr); }
+        .trust-strip { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 900px) {
+        nav.links { display: none; }
+        .menu-btn { display: block; }
+        .nav-inner .btn { display: none; }
+        .hero-stats { grid-template-columns: repeat(2, 1fr); }
+        .hero-showcase { grid-template-columns: 1fr 1fr; }
+        .show-card.tall { grid-row: auto; min-height: 240px; }
+        .hero-showcase .show-card:last-child { grid-column: 1 / -1; }
+        .hero-top { grid-template-columns: 1fr; gap: 34px; }
+        .reel-case { flex-direction: column !important; }
+        .case-media { flex-direction: column; }
+        .case-media .case-photo { flex: none; }
+        .case-media .case-photo img { position: static; height: 320px; }
+        .reel-visual { margin: 22px auto 0; }
+        .seq-strip { grid-template-columns: 1fr 1fr; }
+        .seq-step:nth-child(n+3) { border-top: 1px solid var(--line); }
+        .seq-step:nth-child(3) { border-left: 0; }
+        .cases, .services, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+        .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .wed-cards { grid-template-columns: repeat(2, 1fr); }
+        .xmas-featured { grid-template-columns: 1fr; }
+        .gal { grid-template-columns: repeat(3, 1fr); }
+        .process { grid-template-columns: 1fr 1fr; }
+        .step + .step { border-left: 0; }
+        .step:nth-child(even) { border-left: 1px solid var(--line); }
+        .step:nth-child(n+3) { border-top: 1px solid var(--line); }
+        section { padding: 64px 0 6px; }
+        .filters { top: 64px; }
+      }
+      @media (max-width: 560px) {
+        .proj-grid { grid-template-columns: 1fr; }
+        .wed-cards { grid-template-columns: 1fr; }
+        .hero-showcase { grid-template-columns: 1fr; }
+        .gal { grid-template-columns: repeat(2, 1fr); }
+        .form-row { grid-template-columns: 1fr; }
+        .seq-strip { grid-template-columns: 1fr; }
+        .seq-step + .seq-step { border-left: 0; border-top: 1px solid var(--line); }
+        .seq-step:nth-child(n+3) { border-top: 1px solid var(--line); }
+        .process { grid-template-columns: 1fr; }
+        .step:nth-child(even) { border-left: 0; }
+        .step + .step { border-top: 1px solid var(--line); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .marquee-track, .hero-glow, .contact-box::before, .avail::before, .reel-visual .rv-play, .hero-greet, .tool-strip, .hero-portrait, .hero-portrait img { animation: none; }
+        .rv-init { opacity: 1; transform: none; filter: none; }
+        .rv-in { animation: none; }
+        .vtile, .vtile video { transition: none; }
+        .vtile.playing video { transform: none; }
+        h1.hero-title .w, .hero-sub, .hero-ctas, .hero-sectors, .hero-showcase { animation: none; }
+        * { transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+    <header class="site-nav" id="siteNav">
+      <div class="wrap">
+        <div class="nav-inner">
+          <a class="wordmark" href="#top"><span class="mark">AG</span>adeelgraphic<span class="dot">.</span></a>
+          <nav class="links" aria-label="Main">
+            <a href="#work">Work</a>
+            <a href="#projects">Design Projects</a>
+            <a href="#videos">Videos</a>
+            <a href="#wedding">Wedding Websites</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+            <a href="#christmas">Christmas Campaign</a>
+          </nav>
+          <a class="btn small magnetic" href="#contact" style="margin-left:auto" id="navCta">Start a project</a>
+          <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#work">Work</a>
+          <a href="#projects">Design Projects</a>
+          <a href="#videos">Videos</a>
+          <a href="#wedding">Wedding Websites</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#christmas">Christmas Campaign</a>
+          <a href="#contact">Start a project →</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <div class="hero">
+        <div class="wrap hero-inner">
+          <div class="hero-top">
+            <div class="hero-copy">
+              <div class="hero-greet">Welcome — <span class="lime">I'm Adeel Awan.</span></div>
+              <div class="tool-strip" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3l13 7-6.2 1.6L9.6 18z" /></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5L21 21" /></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l5 12-5 6-5-6z" /><circle cx="12" cy="11" r="1.5" /></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="12" r="6" /><circle cx="15" cy="12" r="6" /></svg>
+              </div>
+              <div class="hero-kicker mono">
+                <span>Adeel Awan — Graphic Designer &amp; Video Editor</span>
+                <span>Lahore, Pakistan · Working worldwide</span>
+                <span class="avail">Available for new projects</span>
+              </div>
+              <h1 class="hero-title" id="heroTitle">Design for brands that <em>refuse</em> to blend in.</h1>
+              <p class="hero-sub">I'm <b>Adeel Awan</b>, a graphic designer and video editor with <b>five years of experience</b> and <b>300+ projects delivered</b> for businesses worldwide. I help brands look credible and sell better — through <b>logo &amp; brand identity, social media design, print systems, menus and ad campaigns</b>, and <b>reels and promotional videos</b> that hold attention past the first two seconds. I'm also a <b>product creator</b>: I run my own Etsy shop, work with clients on Fiverr, and build AI-assisted websites and content systems — so one project with me can cover your design, your video and your web presence. Every project on this page is real work — open any of them and check for yourself.</p>
+              <div class="hero-ctas">
+                <a class="btn magnetic" href="#work">See the work — 300+ projects</a>
+                <a class="btn ghost magnetic" href="#contact">Start a project</a>
+                <a class="btn ghost magnetic" href="https://www.linkedin.com/in/adeel-siddique-065a39266/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              </div>
+              <p class="hero-sectors">Trusted across <b>restaurants · salons · real estate · clothing · trading · healthcare · pharmacy · retail</b></p>
+            </div>
+            <figure class="hero-portrait">
+              <span class="portrait-chip portrait-chip-top mono">Adeel Awan — That's me</span>
+              <img src="asset-001.png" alt="Illustrated portrait of Adeel Awan" width="760" height="1007" />
+              <span class="portrait-chip portrait-chip-bottom mono">Designer &amp; Video Editor</span>
+            </figure>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat"><b><span class="count" data-count="5">0</span> yrs</b><span>Design &amp; brand strategy experience</span></div>
+            <div class="stat"><b><span class="count" data-count="300">0</span><span class="plus">+</span></b><span>Projects designed &amp; delivered*</span></div>
+            <div class="stat"><b>Unlimited</b><span>Videos — reels, ads &amp; promos</span></div>
+            <div class="stat"><b>Unlimited</b><span>Creatives — posts, ads &amp; campaigns</span></div>
+            <p class="hero-note">* <b>300+ is my full project count</b>, including private and unpublished client work. A hand-picked selection is on this page — design projects shown in full, 23 playable videos, five live wedding websites and the complete 30-design Christmas campaign.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+          <span>Logo &amp; Branding <i>✳</i></span><span>Social Media Packs <i>✳</i></span><span>Menus &amp; Rate Cards <i>✳</i></span><span>Ad Campaigns <i>✳</i></span><span>Reels &amp; Video <i>✳</i></span><span>Video Editing <i>✳</i></span><span>Promotional Videos <i>✳</i></span><span>Catalogues &amp; Booklets <i>✳</i></span>
+        </div>
+      </div>
+
+            <!-- ============ SELECTED WORK ============ -->
+      <section id="work">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">01 — Selected Work</div>
+              <h2>Real work — designs, videos &amp; websites</h2>
+            </div>
+          </div>
+          <p class="sec-lede">Everything on this page is real, finished work — no mock-ups, no placeholders. Start with the <a href="#projects"><b>design projects</b></a> — logos, a corporate booklet, a brand media kit, an electronic press kit, social media sets, a web banner and game ad designs — where every card shows a clear preview of the actual design and &#8220;View full design&#8221; opens the complete design, top to bottom. Then watch the <a href="#videos"><b>videos</b></a> playing right here on the page. After that, open the <a href="#wedding"><b>animated wedding websites</b></a> live — each one pairs its own walkthrough video with its real Canva preview link. And finish with the complete <a href="#christmas"><b>30-design Christmas campaign</b></a>.</p>
+
+          
+        </div>
+      </section>
+
+<!-- ============ DESIGN PROJECTS (13 Drive projects) ============ -->
+      <section id="projects">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">02 — Design Projects</div>
+              <h2>Design projects — shown in full</h2>
+            </div>
+          </div>
+          <p class="sec-lede reveal">Thirteen real projects, each with a clear preview of the actual design. Every card shows what the project is at first glance — logo, booklet, kit, social set or ad — and <b>&#8220;View full design&#8221;</b> opens the complete design, top to bottom, so you can read every detail.</p>
+
+          <div class="np-grid">
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-002.jpg" alt="Preview — Instagram ad posts for the Game Against Christmas card game under the headline 'Make Ads Perform Like Never Before'" /><span class="pc-cat">Social Media Ads</span></div>
+              <div class="np-body">
+                <h4>Ad Design — Make Ads Perform Like Never Before</h4>
+                <p>Instagram ad posts for the Game Against Christmas card game, laid out as a social feed — bold red creatives built to stop the scroll.</p>
+                <button class="np-view" type="button" data-full="asset-003.jpg" data-title="Ad Design — Make Ads Perform Like Never Before">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-004.jpg" alt="Preview — Rombool Companies logo in blue and teal, with the standalone R icon" /><span class="pc-cat">Logo &amp; Branding</span></div>
+              <div class="np-body">
+                <h4>Logo Redesign — Rombool Companies</h4>
+                <p>A modern logo redesign for a pharmacy management business — the full lockup, the standalone &#8220;R&#8221; icon, and the design process step by step.</p>
+                <button class="np-view" type="button" data-full="asset-005.jpg" data-title="Logo Redesign — Rombool Companies">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-006.jpg" alt="Preview — Instagram carousel for Shine Max Solutions shown across a phone mockup" /><span class="pc-cat">Social Media Design</span></div>
+              <div class="np-body">
+                <h4>Social Media Post Design — Instagram Carousel</h4>
+                <p>A swipe-through Instagram carousel for Shine Max Solutions, presented on a phone mockup so you can see exactly how it reads in the feed.</p>
+                <button class="np-view" type="button" data-full="asset-007.jpg" data-title="Social Media Post Design — Instagram Carousel">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-008.jpg" alt="Preview — Photo Manipulation Cover Art: finished music covers with before-and-after comparisons" /><span class="pc-cat">Cover Art</span></div>
+              <div class="np-body">
+                <h4>Photo Manipulation Cover Art</h4>
+                <p>Album cover artwork for music artists — the finished covers up top, with before-and-after comparisons showing the photo manipulation underneath.</p>
+                <button class="np-view" type="button" data-full="asset-009.jpg" data-title="Photo Manipulation Cover Art">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-010.jpg" alt="Preview — Star Engineering booklet cover held in two hands" /><span class="pc-cat">Booklet Design</span></div>
+              <div class="np-body">
+                <h4>Booklet Design — Star Engineering</h4>
+                <p>A corporate booklet for Star Engineering — the cover in hand first, then the vision, mission and executive spreads inside.</p>
+                <button class="np-view" type="button" data-full="asset-011.jpg" data-title="Booklet Design — Star Engineering">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-012.jpg" alt="Preview — StyleAura fashion brand media kit pages in yellow and black" /><span class="pc-cat">Brand Media Kit</span></div>
+              <div class="np-body">
+                <h4>Brand Media Kit — StyleAura</h4>
+                <p>Media kit pages for the StyleAura fashion brand — collections, why-choose-us and contact pages in one yellow-and-black system.</p>
+                <button class="np-view" type="button" data-full="asset-013.jpg" data-title="Brand Media Kit — StyleAura">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-014.jpg" alt="Preview — Adele Laurie electronic press kit pages in black, gold and red" /><span class="pc-cat">Electronic Press Kit</span></div>
+              <div class="np-body">
+                <h4>Electronic Press Kit — Adele Laurie</h4>
+                <p>An artist press kit — biography, famous songs and career milestones, designed in a black, gold and stage-red look.</p>
+                <button class="np-view" type="button" data-full="asset-015.jpg" data-title="Electronic Press Kit — Adele Laurie">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-016.jpg" alt="Preview — Urbanwise Management owl-and-roof logo in white on a blue building photo" /><span class="pc-cat">Logo &amp; Branding</span></div>
+              <div class="np-body">
+                <h4>Logo Design — Urbanwise Management</h4>
+                <p>An owl-and-roof logo mark for a real estate management company, shown in white and gold versions over building photography.</p>
+                <button class="np-view" type="button" data-full="asset-017.jpg" data-title="Logo Design — Urbanwise Management">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-018.jpg" alt="Preview — From Moment to Momentum healthcare logo as office wall signage" /><span class="pc-cat">Logo &amp; Branding</span></div>
+              <div class="np-body">
+                <h4>Logo Design — From Moment to Momentum</h4>
+                <p>A healthcare logo presented as office wall signage, with the hand sketches and the story behind the mark below it.</p>
+                <button class="np-view" type="button" data-full="asset-019.jpg" data-title="Logo Design — From Moment to Momentum">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-020.jpg" alt="Preview — Web banner for motorcycle racing gear: 'Style, Comfort, Safety!'" /><span class="pc-cat">Web Banner Design</span></div>
+              <div class="np-body">
+                <h4>Web Banner Design — Racing Gear</h4>
+                <p>A website hero banner for motorcycle racing gear — &#8220;Style, Comfort, Safety!&#8221; — with more banner layouts further down the design.</p>
+                <button class="np-view" type="button" data-full="asset-021.jpg" data-title="Web Banner Design — Racing Gear">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-022.jpg" alt="Preview — Trade Max social media posts under the heading 'Trade Max — Social Media Posting'" /><span class="pc-cat">Social Media Design</span></div>
+              <div class="np-body">
+                <h4>Social Media Post Design — Trade Max</h4>
+                <p>A full social posting set for Trade Max — monthly profit announcements, partnership posts and the content plan behind them.</p>
+                <button class="np-view" type="button" data-full="asset-023.jpg" data-title="Social Media Post Design — Trade Max">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-024.jpg" alt="Preview — Game Thumbnails Ads Designs: card game boxes for Fourth Wing, Potter and Star Wars editions" /><span class="pc-cat">Ad Design</span></div>
+              <div class="np-body">
+                <h4>Game Thumbnails &amp; Ads Designs</h4>
+                <p>Product thumbnail ads for themed card games — Fourth Wing, Potter and Star Wars editions, each with its own world and artwork.</p>
+                <button class="np-view" type="button" data-full="asset-025.jpg" data-title="Game Thumbnails & Ads Designs">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+            <article class="np-card reveal">
+              <div class="np-shot"><img loading="lazy" src="asset-026.jpg" alt="Preview — Real estate social posts in black and gold about choosing a home" /><span class="pc-cat">Social Media Design</span></div>
+              <div class="np-body">
+                <h4>Real Estate Post Design</h4>
+                <p>Property posts in black and gold — &#8220;What kind of home would be the best fit for your family?&#8221; — covering villas, apartments and plots.</p>
+                <button class="np-view" type="button" data-full="asset-027.jpg" data-title="Real Estate Post Design">View full design <span class="p-arrow">↓</span></button>
+              </div>
+            </article>
+          </div>
+          <div class="vid-note reveal"><span class="vn-badge">13 projects · logos · print · kits · social · ads</span><span>Every preview above is a real crop of that project&#8217;s own design file — open the full design on any card to see the whole thing.</span></div>
+        </div>
+      </section>
+
+      <!-- ============ VIDEOS ============ -->
+      <section id="videos">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">03 — Videos</div>
+              <h2>Watch the work move — 18 videos</h2>
+            </div>
+          </div>
+          <p class="sec-lede reveal">Eighteen finished videos, playing right here on the page: fashion and bridal reels, Unzila Salon films, The Glass Garden restaurant videos, music and rap reels, a product ad and the Trade Max app animation. <b>Tap any video to play it</b> — it zooms in gently, takes focus and starts; tap it again to pause. <b>All 18 start muted</b> — on videos with sound, tap the speaker button to turn it on. Two reels — Pink outfit and White bridal — have no sound and play silent.</p>
+          <div class="vid-grid">
+            <figure class="vtile reveal" data-title="Grey dress — patio fashion reel">
+              <video preload="none" muted loop playsinline poster="asset-028.jpg" src="asset-029.mp4" aria-label="Video — Grey dress — patio fashion reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Grey dress — patio fashion reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Grey dress — patio fashion reel</span><span class="v-sub">Fashion Reel · 0:11</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Grey dress — patio fashion reel"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Pink outfit — 'Summer' fashion reel">
+              <video preload="none" muted loop playsinline poster="asset-030.jpg" src="asset-031.mp4" aria-label="Video — Pink outfit — 'Summer' fashion reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Pink outfit — 'Summer' fashion reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Pink outfit — 'Summer' fashion reel</span><span class="v-sub">Fashion Reel · 0:18</span></span>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Orange dress — arched doorway reel">
+              <video preload="none" muted loop playsinline poster="asset-032.jpg" src="asset-033.mp4" aria-label="Video — Orange dress — arched doorway reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Orange dress — arched doorway reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Orange dress — arched doorway reel</span><span class="v-sub">Fashion Reel · 0:21</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Orange dress — arched doorway reel"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="White bridal — pearl jewellery reel">
+              <video preload="none" muted loop playsinline poster="asset-034.jpg" src="asset-035.mp4" aria-label="Video — White bridal — pearl jewellery reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — White bridal — pearl jewellery reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">White bridal — pearl jewellery reel</span><span class="v-sub">Bridal Reel · 0:34</span></span>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Perfect Shine — hair treatment film">
+              <video preload="none" muted loop playsinline poster="asset-036.jpg" src="asset-037.mp4" aria-label="Video — Perfect Shine — hair treatment film"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Perfect Shine — hair treatment film"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Perfect Shine — hair treatment film</span><span class="v-sub">Unzila Salon · 0:22</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Perfect Shine — hair treatment film"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Chic half-up hairstyle — blow-dry">
+              <video preload="none" muted loop playsinline poster="asset-038.jpg" src="asset-039.mp4" aria-label="Video — Chic half-up hairstyle — blow-dry"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Chic half-up hairstyle — blow-dry"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Chic half-up hairstyle — blow-dry</span><span class="v-sub">Unzila Salon · 0:23</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Chic half-up hairstyle — blow-dry"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Red &amp; gold bridal reel">
+              <video preload="none" muted loop playsinline poster="asset-040.jpg" src="asset-041.mp4" aria-label="Video — Red &amp; gold bridal reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Red &amp; gold bridal reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Red &amp; gold bridal reel</span><span class="v-sub">Bridal Reel · 0:34</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Red &amp; gold bridal reel"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Kitchen — wok noodles, tossed live">
+              <video preload="none" muted loop playsinline poster="asset-042.jpg" src="asset-043.mp4" aria-label="Video — Kitchen — wok noodles, tossed live"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Kitchen — wok noodles, tossed live"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Kitchen — wok noodles, tossed live</span><span class="v-sub">The Glass Garden · 0:14</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Kitchen — wok noodles, tossed live"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Interior tour — opening soon">
+              <video preload="none" muted loop playsinline poster="asset-044.jpg" src="asset-045.mp4" aria-label="Video — Interior tour — opening soon"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Interior tour — opening soon"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Interior tour — opening soon</span><span class="v-sub">The Glass Garden · 0:42</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Interior tour — opening soon"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Karahi over open flames">
+              <video preload="none" muted loop playsinline poster="asset-046.jpg" src="asset-047.mp4" aria-label="Video — Karahi over open flames"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Karahi over open flames"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Karahi over open flames</span><span class="v-sub">The Glass Garden · 0:25</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Karahi over open flames"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Gym — dumbbell step-ups">
+              <video preload="none" muted loop playsinline poster="asset-048.jpg" src="asset-049.mp4" aria-label="Video — Gym — dumbbell step-ups"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Gym — dumbbell step-ups"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Gym — dumbbell step-ups</span><span class="v-sub">Fitness Reel · 0:31</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Gym — dumbbell step-ups"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="'Heard' — dreadlocks music reel">
+              <video preload="none" muted loop playsinline poster="asset-050.jpg" src="asset-051.mp4" aria-label="Video — 'Heard' — dreadlocks music reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — 'Heard' — dreadlocks music reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">'Heard' — dreadlocks music reel</span><span class="v-sub">Music Reel · 0:27</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — 'Heard' — dreadlocks music reel"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Live stage — graffiti wall">
+              <video preload="none" muted loop playsinline poster="asset-052.jpg" src="asset-053.mp4" aria-label="Video — Live stage — graffiti wall"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Live stage — graffiti wall"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Live stage — graffiti wall</span><span class="v-sub">Music Reel · 0:25</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Live stage — graffiti wall"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="'Still' — warm-light landscape clip">
+              <video preload="none" muted loop playsinline poster="asset-054.jpg" src="asset-055.mp4" aria-label="Video — 'Still' — warm-light landscape clip"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — 'Still' — warm-light landscape clip"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">'Still' — warm-light landscape clip</span><span class="v-sub">Music Reel · 0:22</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — 'Still' — warm-light landscape clip"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Pledge — stage performance reel">
+              <video preload="none" muted loop playsinline poster="asset-056.jpg" src="asset-057.mp4" aria-label="Video — Pledge — stage performance reel"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Pledge — stage performance reel"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Pledge — stage performance reel</span><span class="v-sub">Rap Artist Reels · 0:23</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Pledge — stage performance reel"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Tissue covers — product ad">
+              <video preload="none" muted loop playsinline poster="asset-058.jpg" src="asset-059.mp4" aria-label="Video — Tissue covers — product ad"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Tissue covers — product ad"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Tissue covers — product ad</span><span class="v-sub">Product Ad · 0:21</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Tissue covers — product ad"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Bank &amp; card app animation">
+              <video preload="none" muted loop playsinline poster="asset-060.jpg" src="asset-061.mp4" aria-label="Video — Bank &amp; card app animation"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Bank &amp; card app animation"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Bank &amp; card app animation</span><span class="v-sub">Trade Max · 0:37</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Bank &amp; card app animation"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+            <figure class="vtile reveal" data-title="Helmet handover — warehouse &amp; office">
+              <video preload="none" muted loop playsinline poster="asset-062.jpg" src="asset-063.mp4" aria-label="Video — Helmet handover — warehouse &amp; office"></video>
+              <span class="v-shade" aria-hidden="true"></span>
+              <button class="v-play" type="button" aria-label="Play video — Helmet handover — warehouse &amp; office"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+              <figcaption class="v-meta">
+                <span class="v-titles"><span class="v-name">Helmet handover — warehouse &amp; office</span><span class="v-sub">Corporate Reel · 0:22</span></span>
+                <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Helmet handover — warehouse &amp; office"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="vid-note reveal"><span class="vn-badge">18 videos · vertical 9:16</span><span>Cut and finished in Premiere Pro, After Effects and CapCut. On videos with sound, sound stays off until you tap that video&#8217;s speaker button.</span></div>
+        </div>
+      </section>
+
+      <!-- ============ WEDDING WEBSITES ============ -->
+      <section id="wedding">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">04 — Wedding Websites</div>
+              <h2>Wedding websites — live animated examples</h2>
+            </div>
+          </div>
+          <p class="sec-lede reveal">These are <b>animated wedding invitation websites</b>, designed and built in Canva — envelope-style openings, a live countdown, the couple's story, the day's schedule and an RSVP form, all animated as guests scroll. Two ways to see them running: <b>watch the walkthrough videos</b>, recorded from the real sites, or <b>open any live site</b> — it opens the real Canva website in a new tab, where its own animations, countdown and RSVP run exactly as designed. Below, <b>five wedding websites</b> each pair their own walkthrough video with their live preview link on the same card — watch it here first, then open the real thing.</p>
+
+          <h3 class="wed-subhead reveal">Five wedding websites — video + live preview</h3>
+          <div class="wed-new-grid">
+            <article class="wed-new reveal">
+              <figure class="vtile" data-title="Archie &amp; Colette — dark floral wedding website walkthrough">
+                <video preload="none" muted loop playsinline poster="asset-064.jpg" src="asset-065.mp4" aria-label="Video — Archie &amp; Colette wedding website walkthrough"></video>
+                <span class="v-shade" aria-hidden="true"></span>
+                <button class="v-play" type="button" aria-label="Play video — Archie &amp; Colette wedding website walkthrough"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+                <figcaption class="v-meta">
+                  <span class="v-titles"><span class="v-name">Archie &amp; Colette</span><span class="v-sub">Wedding Website · 0:34</span></span>
+                  <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Archie &amp; Colette wedding website walkthrough"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+                </figcaption>
+              </figure>
+              <div class="wed-new-body">
+                <span class="mono">Video + live preview</span>
+                <h4>Archie &amp; Colette — dark floral</h4>
+                <p>White and dark red roses on a deep burgundy theme. <b>7 August 2028 · Hyatt Regency, New York.</b> Live countdown, details, the couple's love story and RSVP. Watch the walkthrough here, then open the real site.</p>
+                <a class="btn small" href="https://qaseem.canva.link/copy-of-dark-new-flower" target="_blank" rel="noopener">Open live preview ↗</a>
+              </div>
+            </article>
+            <article class="wed-new reveal">
+              <figure class="vtile" data-title="Alice &amp; James — vintage wedding website walkthrough">
+                <video preload="none" muted loop playsinline poster="asset-066.jpg" src="asset-067.mp4" aria-label="Video — Alice &amp; James wedding website walkthrough"></video>
+                <span class="v-shade" aria-hidden="true"></span>
+                <button class="v-play" type="button" aria-label="Play video — Alice &amp; James wedding website walkthrough"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+                <figcaption class="v-meta">
+                  <span class="v-titles"><span class="v-name">Alice &amp; James</span><span class="v-sub">Wedding Website · 0:23</span></span>
+                  <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Alice &amp; James wedding website walkthrough"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+                </figcaption>
+              </figure>
+              <div class="wed-new-body">
+                <span class="mono">Video + live preview</span>
+                <h4>Alice &amp; James — vintage stripes</h4>
+                <p>A vintage striped design in cream, pink and red, with a pink instant camera on the cover. <b>Save the date — 7 August 2028.</b> "Open Invitation" opening, RSVP, music player, love story and countdown.</p>
+                <a class="btn small" href="https://qaseem.canva.link/vintage-app" target="_blank" rel="noopener">Open live preview ↗</a>
+              </div>
+            </article>
+            <article class="wed-new reveal">
+              <figure class="vtile" data-title="Sophia &amp; Daniel — cool blue wedding website walkthrough">
+                <video preload="none" muted loop playsinline poster="asset-068.jpg" src="asset-069.mp4" aria-label="Video — Sophia &amp; Daniel wedding website walkthrough"></video>
+                <span class="v-shade" aria-hidden="true"></span>
+                <button class="v-play" type="button" aria-label="Play video — Sophia &amp; Daniel wedding website walkthrough"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+                <figcaption class="v-meta">
+                  <span class="v-titles"><span class="v-name">Sophia &amp; Daniel</span><span class="v-sub">Wedding Website · 0:24</span></span>
+                  <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Sophia &amp; Daniel wedding website walkthrough"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+                </figcaption>
+              </figure>
+              <div class="wed-new-body">
+                <span class="mono">Video + live preview</span>
+                <h4>Sophia &amp; Daniel — cool blue</h4>
+                <p>Light blue and white, with deep red lace cards and a red heart "SD" monogram. <b>18 March 2029.</b> Countdown, RSVP, details and the love story — "Closing the Year with You".</p>
+                <a class="btn small" href="https://qaseem.canva.link/cool-theme-wedding-invatation" target="_blank" rel="noopener">Open live preview ↗</a>
+              </div>
+            </article>
+            <article class="wed-new reveal">
+              <figure class="vtile" data-title="Lace &amp; June — pink envelope wedding website, new walkthrough">
+                <video preload="none" muted loop playsinline poster="asset-070.jpg" src="asset-071.mp4" aria-label="Video — Lace &amp; June pink envelope wedding website, new walkthrough"></video>
+                <span class="v-shade" aria-hidden="true"></span>
+                <button class="v-play" type="button" aria-label="Play video — Lace &amp; June pink envelope wedding website, new walkthrough"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+                <figcaption class="v-meta">
+                  <span class="v-titles"><span class="v-name">Lace &amp; June — pink</span><span class="v-sub">Wedding Website · 0:28</span></span>
+                  <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Lace &amp; June pink envelope wedding website, new walkthrough"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+                </figcaption>
+              </figure>
+              <div class="wed-new-body">
+                <span class="mono">Video + live preview</span>
+                <h4>Lace &amp; June — pink envelope</h4>
+                <p>Blush pink and white — the site opens from a pink envelope sealed with a red "LJ" wax seal. <b>7 August 2028 · Hyatt Regency.</b> Watch the walkthrough here, then open the live site itself with the button.</p>
+                <a class="btn small" href="https://qaseem.canva.link/lace-june-wedding-website" target="_blank" rel="noopener">Open live preview ↗</a>
+              </div>
+            </article>
+            <article class="wed-new reveal">
+              <figure class="vtile" data-title="Lace &amp; June — deep red wedding website walkthrough">
+                <video preload="none" muted loop playsinline poster="asset-072.jpg" src="asset-073.mp4" aria-label="Video — Lace &amp; June deep red wedding website walkthrough"></video>
+                <span class="v-shade" aria-hidden="true"></span>
+                <button class="v-play" type="button" aria-label="Play video — Lace &amp; June deep red wedding website walkthrough"><span class="vp-circle"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+                <figcaption class="v-meta">
+                  <span class="v-titles"><span class="v-name">Lace &amp; June — deep red</span><span class="v-sub">Wedding Website · 0:19</span></span>
+                  <button class="v-sound" type="button" aria-pressed="false" aria-label="Unmute video — Lace &amp; June deep red wedding website walkthrough"><svg class="ic-off" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z" fill="currentColor" stroke="none"/><path d="M15.5 9a4.2 4.2 0 010 6M18.2 6.2a8 8 0 010 11.6"/></svg></button>
+                </figcaption>
+              </figure>
+              <div class="wed-new-body">
+                <span class="mono">Video + live preview</span>
+                <h4>Lace &amp; June — deep red edition</h4>
+                <p>The same couple, a moodier edition: deep burgundy background with pale gold script. Home, Details and RSVP form pages, love story and "You Are Invited" — at the <b>Hyatt Regency</b>.</p>
+                <a class="btn small" href="https://qaseem.canva.link/dahwcx-yykk" target="_blank" rel="noopener">Open live preview ↗</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="vid-note reveal"><span class="vn-badge">5 Canva wedding websites · 5 walkthrough videos</span><span>Want one for your own wedding? Message me below — your site can be built, animated and live the same way.</span></div>
+        </div>
+      </section>
+
+      <!-- ============ CHRISTMAS CAMPAIGN ============ -->
+      <section id="christmas">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">05 — One Full Campaign</div>
+              <h2>One product. Thirty Christmas ads.</h2>
+            </div>
+          </div>
+          <p class="sec-lede reveal">One example of campaign-depth work: a complete seasonal set I designed for <b>Game Against Christmas</b>, a party card game — countdown posts, discount offers, ski-trip scenes, gift angles and hosting hooks, all in one consistent red-and-bold system. This is what a full campaign looks like: not one good ad, but thirty that work as a set. Tap any design to view it full-size.</p>
+
+          <div class="xmas-featured reveal" id="xmasFeatured"></div>
+          <div class="gal reveal" id="xmasGallery"></div>
+        </div>
+      </section>
+
+      <!-- ============ SERVICES ============ -->
+      <section id="services">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">06 — Services</div>
+              <h2>What I can make for you</h2>
+            </div>
+          </div>
+          <p class="sec-lede reveal">Graphic design and video editing, quoted per project — message me for a quote and I'll reply with a clear scope, timeline and price before any work starts. No surprises later.</p>
+
+          <div class="services">
+            <div class="service reveal">
+              <span class="num">S.01</span>
+              <h3>Logo &amp; Branding</h3>
+              <p>A complete identity, not just a logo file — built to stay consistent everywhere your brand shows up.</p>
+              <ul>
+                <li>Logo suite (primary, secondary, icon)</li>
+                <li>Colour palette &amp; typography system</li>
+                <li>Mini brand kit for social &amp; print</li>
+                <li>Files in every format you'll need</li>
+              </ul>
+            </div>
+            <div class="service reveal">
+              <span class="num">S.02</span>
+              <h3>Social Media Packs</h3>
+              <p>A month of posts designed as one system, so your feed looks like one brand — not thirty random graphics.</p>
+              <ul>
+                <li>Monthly post packs (e.g. 15 posts)</li>
+                <li>Reusable templates in your brand style</li>
+                <li>Campaign &amp; offer creatives</li>
+                <li>Instagram catalogue layouts</li>
+              </ul>
+            </div>
+            <div class="service reveal">
+              <span class="num">S.03</span>
+              <h3>Menus &amp; Rate Cards</h3>
+              <p>Menus designed as a selling system — structure, hierarchy and appetite appeal, for restaurants, cafés and salons.</p>
+              <ul>
+                <li>Full menu design (print &amp; digital)</li>
+                <li>Rate cards &amp; price lists</li>
+                <li>Table tents &amp; in-store signage</li>
+                <li>Easy-update files for price changes</li>
+              </ul>
+            </div>
+            <div class="service reveal">
+              <span class="num">S.04</span>
+              <h3>Video Editing &amp; Reels</h3>
+              <p>Two-plus years of video editing behind the design — reels and promotional videos that earn the first two seconds, then hold them.</p>
+              <ul>
+                <li>Instagram &amp; YouTube reels — edit, captions, hooks</li>
+                <li>Promotional videos — shoot direction &amp; edit</li>
+                <li>Adobe Premiere Pro · After Effects · CapCut</li>
+                <li>Seasonal campaigns (like the 30-ad Christmas set)</li>
+                <li>Thumbnails that get the click</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process reveal">
+            <div class="step"><span class="n">Step 01</span><b>Brief</b><p>Tell me about your business and what the design has to do. One short form or one Instagram DM is enough.</p></div>
+            <div class="step"><span class="n">Step 02</span><b>Quote</b><p>You get a clear scope, timeline and price in writing before anything starts. No hourly billing, no surprises.</p></div>
+            <div class="step"><span class="n">Step 03</span><b>Design</b><p>First concepts, then refinement rounds with your feedback until it looks like <i>your</i> brand — only better.</p></div>
+            <div class="step"><span class="n">Step 04</span><b>Deliver</b><p>Final files in every format you need — print-ready, social-ready, and easy to reuse.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section id="about">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">07 — About</div>
+              <h2>Not just a designer — a product creator</h2>
+            </div>
+          </div>
+          <div class="about-grid">
+            <div class="reveal">
+              <p class="big">I'm Adeel Awan — a graphic designer, video editor and <b>product creator</b>. I don't just design files: I build products, launch them, and sell them.</p>
+              <p>I'm an <b>entrepreneur, not an employee</b>. I run my own shop on Etsy — CreativeNovaDesigner — I've worked with clients on Fiverr, and long before client work I was building my own personal projects from idea to finished, sellable product. That changes how I design for you: every design has to work in the real world — to sell, to book, to get the click — not just look good in a file.</p>
+              <p>AI is where my creativity gets its second engine. I think deeply about how AI works, and my creativity has only become <b>stronger</b> with it — never replaced by it. <b>ChatGPT, Muse AI, LMArena, Adobe Firefly and Canva</b> are part of my daily toolkit: I use them to explore more directions, faster, then I make every final call myself. The taste is mine; AI just lets me test ten ideas in the time one used to take.</p>
+              <p>Because I understand AI, I automate with it. My own accounts and social pages run on <b>AI-assisted systems I set up myself</b> — content planned, created and posted in a system instead of by hand every day. Hire me, and I can build the same kind of system around your brand's content.</p>
+              <p>And I don't stop at pictures. With AI's help I can take a website from a rough idea all the way to <b>built, live and working</b> — this portfolio is one of them. Video is the other half of the practice: 2+ years of editing in Premiere Pro, After Effects and CapCut — reels for international rap artists, restaurant films for The Glass Garden, salon films for Unzila. Design, video, products, websites: one person who can carry a project from the first sketch to the thing your customers actually see.</p>
+              <p>I'm based in Lahore, Pakistan and work with clients worldwide — everything runs over message and email, with clear scopes and timelines agreed up front. The proof is on this page: <b>300+ projects designed</b> in total — including private and unpublished work — with design projects shown in full, 23 videos and a complete 30-design campaign to watch and browse right here.</p>
+            </div>
+            <aside class="about-side reveal">
+              <h3>At a glance</h3>
+              <dl>
+                <div><dt>Name</dt><dd>Adeel Awan</dd></div>
+                <div><dt>Username</dt><dd>@adeelgraphic786 · adeelgraphic</dd></div>
+                <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/adeel-siddique-065a39266/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:700">Adeel Siddique — Senior Graphic Designer &amp; Video Editor · 500+ connections ↗</a></dd></div>
+                <div><dt>Role</dt><dd>Product Creator · Graphic Designer · Video Editor</dd></div>
+                <div><dt>Entrepreneur</dt><dd>Runs his own Etsy shop — CreativeNovaDesigner · also sells his work on Fiverr</dd></div>
+                <div><dt>Experience</dt><dd>5 years — graphic design, brand strategy &amp; video editing</dd></div>
+                <div><dt>Projects</dt><dd>300+ designed in total — a selection is in the Design Projects section on this page</dd></div>
+                <div><dt>Sectors</dt><dd>Restaurants · Salons · Real Estate · Clothing · Trading · Healthcare · Pharmacy · Retail</dd></div>
+                <div><dt>Based in</dt><dd>Lahore, Pakistan — working worldwide</dd></div>
+                <div><dt>AI tools I work with</dt><dd>
+                  <span class="tool-chips">
+                    <span class="tag">ChatGPT</span><span class="tag">Muse AI</span><span class="tag">LMArena</span><span class="tag">Design Arena</span><span class="tag">Adobe Firefly</span><span class="tag">Canva AI</span>
+                  </span></dd></div>
+                <div><dt>Tools of the trade</dt><dd>
+                  <span class="tool-chips">
+                    <span class="tag">Adobe Photoshop</span><span class="tag">Adobe Illustrator</span><span class="tag">Figma</span><span class="tag">Canva</span><span class="tag">Adobe Premiere Pro</span><span class="tag">After Effects</span><span class="tag">CapCut</span><span class="tag">Photo Manipulation</span><span class="tag">Brand Systems</span>
+                  </span></dd></div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WHY HIRE ME ============ -->
+      <section id="why">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">08 — Why hire me</div>
+              <h2>Why I'm the better choice</h2>
+            </div>
+          </div>
+          <p class="sec-lede reveal">Plenty of designers can hand you a pretty file. Here's what you get with me that a regular designer doesn't bring:</p>
+
+          <div class="services">
+            <div class="service reveal">
+              <span class="num">W.01</span>
+              <h3>Design + product thinking</h3>
+              <p>I sell my own products on Etsy, so I design like someone whose own money is on the line. Every design has a job — to sell, to book, to get the click — not just to look nice.</p>
+            </div>
+            <div class="service reveal">
+              <span class="num">W.02</span>
+              <h3>Faster, with AI</h3>
+              <p>My AI-assisted workflow — ChatGPT, Muse AI, Firefly, Canva and more — means more concepts to choose from and faster revisions, without cutting corners: the final design is always finished by hand and by eye.</p>
+            </div>
+            <div class="service reveal">
+              <span class="num">W.03</span>
+              <h3>Real marketplace experience</h3>
+              <p>An Etsy shop of my own and client work on Fiverr taught me what buyers actually respond to — thumbnails, listings and posts that convert, learned from selling, not theory.</p>
+            </div>
+            <div class="service reveal">
+              <span class="num">W.04</span>
+              <h3>Systems, not one-offs</h3>
+              <p>My own social pages run on AI-automated content systems I built myself. Hire me and you can get the same: content that keeps going out on schedule instead of one post and then silence.</p>
+            </div>
+            <div class="service reveal">
+              <span class="num">W.05</span>
+              <h3>Websites, delivered live</h3>
+              <p>I can take your website from idea to live — designed, built and published — so you don't need to hire a separate developer just to launch.</p>
+            </div>
+            <div class="service reveal">
+              <span class="num">W.06</span>
+              <h3>One person, whole package</h3>
+              <p>Logo, social, video, website: one point of contact who knows your brand end to end. No agency layers, no hand-offs, no waiting on someone else.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section id="faq">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <div>
+              <div class="mono">09 — FAQ</div>
+              <h2>Before you ask</h2>
+            </div>
+          </div>
+          <div class="faq reveal">
+            <details>
+              <summary>How do we start?</summary>
+              <p>Send the short form below, an email, or an Instagram DM. Tell me what your business is and what you need designed. I'll reply with a clear scope, timeline and a fixed quote — you approve it, and only then does work begin.</p>
+            </details>
+            <details>
+              <summary>How much does it cost?</summary>
+              <p>Every project is quoted individually, because a logo, a menu and a 30-ad campaign are very different jobs. Message me for a quote — it's specific to your project, and there's no obligation to go ahead.</p>
+            </details>
+            <details>
+              <summary>How long does a project take?</summary>
+              <p>It depends on scope: a logo or a small set of posts is days, a full identity or campaign is longer. Your quote always includes a delivery timeline, and I work to it.</p>
+            </details>
+            <details>
+              <summary>What do you need from me?</summary>
+              <p>Just your business basics: what you sell, who it's for, any existing logo or photos you have, and examples of styles you like (or hate). After that, feedback at the concept stage — I'll handle everything else.</p>
+            </details>
+            <details>
+              <summary>Can you match my existing brand?</summary>
+              <p>Yes — I can design inside an existing identity, refresh one that's drifting, or build a new one from scratch. Send what you have and I'll tell you honestly which route makes sense.</p>
+            </details>
+            <details>
+              <summary>Where can I see more of your work?</summary>
+              <p>Start with the work on this page — the design projects shown in full, the 23 videos, the five live wedding websites and the 30-design Christmas campaign show the range: logos, kits, booklets, social sets and ad designs. If a style you see matches what you want, mention it in your message and we'll start from it.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section id="contact">
+        <div class="wrap">
+          <div class="contact-box reveal">
+            <div class="mono" style="color:var(--accent);margin-bottom:16px">10 — Contact</div>
+            <h2>Let's make your brand <em>impossible</em> to scroll past.</h2>
+            <p>Tell me what you're planning — a logo, a menu, a month of posts, a full campaign. I'll reply with a quote, a timeline, and the first ideas. No price lists, no pressure.</p>
+            <div class="contact-grid">
+              <div class="contact-links">
+                <a href="mailto:adeelgraphic786@gmail.com"><span>Email</span>adeelgraphic786@gmail.com</a>
+                <a href="https://www.instagram.com/adeelgraphic786" target="_blank" rel="noopener"><span>Instagram</span>@adeelgraphic786</a>
+                <a href="https://www.linkedin.com/in/adeel-siddique-065a39266/" target="_blank" rel="noopener"><span>LinkedIn</span>Adeel Siddique · 500+ connections</a>
+              </div>
+              <form class="quote" id="quoteForm">
+                <div class="form-row">
+                  <label>Your name<input type="text" id="fName" autocomplete="name" placeholder="e.g. Sarah from Maple Café" /></label>
+                  <label>What do you need?
+                    <select id="fType">
+                      <option>Logo &amp; Branding</option>
+                      <option>Social Media Pack</option>
+                      <option>Menu / Rate Card</option>
+                      <option>Video Editing / Reels</option>
+                      <option>Something else</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="form-row">
+                  <label>Timeline
+                    <select id="fTimeline">
+                      <option>No rush — this month</option>
+                      <option>Within 2 weeks</option>
+                      <option>This week if possible</option>
+                      <option>Just exploring for now</option>
+                    </select>
+                  </label>
+                  <label>Budget range
+                    <select id="fBudget">
+                      <option>Let's discuss</option>
+                      <option>Under $250</option>
+                      <option>$250 – $500</option>
+                      <option>$500 – $1,000</option>
+                      <option>$1,000+</option>
+                    </select>
+                  </label>
+                </div>
+                <label>About your project<textarea id="fMsg" placeholder="Tell me about your business and what this design needs to do…"></textarea></label>
+                <button class="btn magnetic" type="submit" style="justify-self:start">Message for a quote →</button>
+                <p class="form-note">This opens your email app with the message ready to send to adeelgraphic786@gmail.com — nothing is sent until you press send there. Prefer Instagram? DM <b>@adeelgraphic786</b>.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p class="foot-thanks">Thank you for visiting my portfolio. <span>I look forward to working together on your next project.</span></p>
+      </div>
+      <div class="wrap foot">
+        <span><b>adeelgraphic.</b> — Adeel Awan · Lahore, Pakistan · Working worldwide</span>
+        <span>
+          <a href="https://www.instagram.com/adeelgraphic786" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.linkedin.com/in/adeel-siddique-065a39266/" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="#top">Back to top ↑</a>
+        </span>
+      </div>
+    </footer>
+
+    <!-- ============ FULL-DESIGN VIEWER (Design Projects) ============ -->
+    <div class="fullview" id="fullview" role="dialog" aria-label="Full design viewer">
+      <div class="fv-bar">
+        <span class="fv-title" id="fvTitle"></span>
+        <button id="fvClose" aria-label="Close full design viewer">Close ✕</button>
+      </div>
+      <div class="fv-scroll" id="fvScroll"><img id="fvImg" alt="" /></div>
+    </div>
+
+    <!-- ============ LIGHTBOX ============ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Design viewer">
+      <img id="lbImg" alt="" />
+      <div class="lb-bar">
+        <button id="lbPrev" aria-label="Previous design">← Prev</button>
+        <span class="lb-count" id="lbCount"></span>
+        <button id="lbNext" aria-label="Next design">Next →</button>
+        <button id="lbClose" aria-label="Close viewer">Close ✕</button>
+      </div>
+    </div>
+
+    <script>
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // ---- Hero headline: split into words for a staggered rise-in ----
+      (function () {
+        var h = document.getElementById("heroTitle");
+        if (!h) return;
+        var nodes = Array.prototype.slice.call(h.childNodes);
+        h.innerHTML = "";
+        var i = 0;
+        nodes.forEach(function (node) {
+          if (node.nodeType === 3) {
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function (word) {
+              var s = document.createElement("span");
+              s.className = "w";
+              s.style.setProperty("--i", i++);
+              s.textContent = word;
+              h.appendChild(s);
+              h.appendChild(document.createTextNode(" "));
+            });
+          } else if (node.nodeType === 1) {
+            var em = document.createElement(node.tagName.toLowerCase());
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function (word) {
+              var s = document.createElement("span");
+              s.className = "w";
+              s.style.setProperty("--i", i++);
+              s.textContent = word;
+              em.appendChild(s);
+              em.appendChild(document.createTextNode(" "));
+            });
+            h.appendChild(em);
+            h.appendChild(document.createTextNode(" "));
+          }
+        });
+      })();
+
+      // ---- Christmas gallery (all 30 real designs, in order) ----
+      var DESIGNS = [];
+      for (var i = 1; i <= 30; i++) {
+        var n = (i < 10 ? "0" : "") + i;
+        DESIGNS.push({ src: "xmas-" + n + ".jpg", label: "Design " + i + " of 30" });
+      }
+      function makeTile(imgHTML, idx, label) {
+        var fig = document.createElement("figure");
+        fig.innerHTML = imgHTML + "<figcaption>" + label + "</figcaption>";
+        fig.tabIndex = 0;
+        fig.setAttribute("role", "button");
+        fig.setAttribute("aria-label", "View " + label.toLowerCase() + " full size");
+        fig.addEventListener("click", function () { openLB(idx); });
+        fig.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLB(idx); }
+        });
+        return fig;
+      }
+      var featuredIdx = [11, 4, 0]; // ski-slope offer ad, shopping basket, countdown calendar
+      var featWrap = document.getElementById("xmasFeatured");
+      featuredIdx.forEach(function (idx) {
+        var d = DESIGNS[idx];
+        featWrap.appendChild(makeTile('<img src="' + d.src + '" alt="Featured Christmas ad creative — ' + d.label + ' of the Game Against Christmas campaign" fetchpriority="high" />', idx, d.label));
+      });
+      var galWrap = document.getElementById("xmasGallery");
+      DESIGNS.forEach(function (d, idx) {
+        galWrap.appendChild(makeTile('<img src="' + d.src + '" alt="Christmas ad creative ' + (idx + 1) + ' of 30 — Game Against Christmas campaign" />', idx, d.label));
+      });
+
+      // ---- Lightbox ----
+      var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"),
+          lbCount = document.getElementById("lbCount"), cur = 0;
+      function openLB(idx) {
+        cur = idx;
+        lbImg.src = DESIGNS[idx].src;
+        lbImg.alt = "Christmas ad creative " + (idx + 1) + " of 30 — Game Against Christmas campaign";
+        lbCount.textContent = DESIGNS[idx].label;
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLB() { lb.classList.remove("open"); document.body.style.overflow = ""; }
+      function stepLB(d) { openLB((cur + d + DESIGNS.length) % DESIGNS.length); }
+      document.getElementById("lbClose").addEventListener("click", closeLB);
+      document.getElementById("lbPrev").addEventListener("click", function () { stepLB(-1); });
+      document.getElementById("lbNext").addEventListener("click", function () { stepLB(1); });
+      lb.addEventListener("click", function (e) { if (e.target === lb) closeLB(); });
+      document.addEventListener("keydown", function (e) {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLB();
+        if (e.key === "ArrowLeft") stepLB(-1);
+        if (e.key === "ArrowRight") stepLB(1);
+      });
+
+      // ---- Full-design viewer: shows a Design Project's complete tall design, scrollable ----
+      var fv = document.getElementById("fullview"), fvImg = document.getElementById("fvImg"),
+          fvTitle = document.getElementById("fvTitle"), fvScroll = document.getElementById("fvScroll");
+      function openFV(btn) {
+        fvImg.src = btn.getAttribute("data-full");
+        fvImg.alt = "Full design — " + (btn.getAttribute("data-title") || "project");
+        fvTitle.textContent = btn.getAttribute("data-title") || "";
+        fvScroll.scrollTop = 0;
+        fv.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeFV() { fv.classList.remove("open"); document.body.style.overflow = ""; fvImg.src = ""; }
+      document.querySelectorAll(".np-view").forEach(function (btn) {
+        btn.addEventListener("click", function () { openFV(btn); });
+      });
+      document.getElementById("fvClose").addEventListener("click", closeFV);
+      fv.addEventListener("click", function (e) { if (e.target === fv || e.target === fvScroll) closeFV(); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && fv.classList.contains("open")) closeFV();
+      });
+
+      // ---- Behance project previews are static tiles in the markup (no embeds to mount) ----
+
+      // ---- Work filter (group-aware: hides whole groups with no match) ----
+      var chips = document.querySelectorAll(".chip");
+      var filterables = document.querySelectorAll(".work-group [data-cat]");
+      var groups = document.querySelectorAll(".work-group");
+      function applyFilter(f) {
+        filterables.forEach(function (card) {
+          var cats = (card.getAttribute("data-cat") || "").split(" ");
+          card.classList.toggle("hide", f !== "all" && cats.indexOf(f) === -1);
+        });
+        groups.forEach(function (g) {
+          if (f === "all") { g.classList.remove("hide"); return; }
+          var any = g.querySelectorAll(".case:not(.hide), .proj:not(.hide)");
+          g.classList.toggle("hide", any.length === 0);
+        });
+      }
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          chips.forEach(function (c) { c.classList.remove("active"); });
+          chip.classList.add("active");
+          var f = chip.getAttribute("data-filter");
+          applyFilter(f);
+          if (f === "christmas") {
+            document.getElementById("christmas").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+          }
+        });
+      });
+
+      // ---- Reveal on scroll: stagger siblings, hide only what is below the fold ----
+      (function () {
+        var els = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+        // Stagger: index within each parent group
+        var seen = {};
+        els.forEach(function (el) {
+          var parent = el.parentElement;
+          var key = parent ? Array.prototype.indexOf.call(document.querySelectorAll(".reveal"), el) : 0;
+          var sibs = parent ? Array.prototype.filter.call(parent.children, function (c) { return c.classList && c.classList.contains("reveal"); }) : [el];
+          el.style.setProperty("--d", Math.min(sibs.indexOf(el), 5));
+        });
+        if (reducedMotion || !("IntersectionObserver" in window)) return;
+        var vh = window.innerHeight || 800;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.remove("rv-init");
+              en.target.classList.add("rv-in");
+              io.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+        els.forEach(function (el) {
+          if (el.getBoundingClientRect().top > vh * 0.92) {
+            el.classList.add("rv-init");
+            io.observe(el);
+          }
+        });
+      })();
+
+      // ---- Animated counters ----
+      (function () {
+        var counters = document.querySelectorAll(".count");
+        if (!counters.length) return;
+        function run(el) {
+          var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+          if (reducedMotion) { el.textContent = target; return; }
+          var start = null, dur = 1300;
+          function tick(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased);
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        if (!("IntersectionObserver" in window)) { counters.forEach(run); return; }
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { run(en.target); cio.unobserve(en.target); }
+          });
+        }, { threshold: 0.4 });
+        counters.forEach(function (c) { cio.observe(c); });
+      })();
+
+      // ---- Card tilt (pointer devices only) ----
+      (function () {
+        if (reducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+        document.querySelectorAll(".tilt").forEach(function (card) {
+          card.addEventListener("mousemove", function (e) {
+            var r = card.getBoundingClientRect();
+            var x = (e.clientX - r.left) / r.width - 0.5;
+            var y = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = "perspective(900px) rotateY(" + (x * 5).toFixed(2) + "deg) rotateX(" + (-y * 5).toFixed(2) + "deg) translateY(-4px)";
+          });
+          card.addEventListener("mouseleave", function () {
+            card.style.transform = "";
+            card.style.transition = "transform 0.45s ease";
+            setTimeout(function () { card.style.transition = ""; }, 460);
+          });
+        });
+      })();
+
+      // ---- Magnetic buttons (subtle pull toward cursor) ----
+      (function () {
+        if (reducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+        document.querySelectorAll(".magnetic").forEach(function (btn) {
+          btn.addEventListener("mousemove", function (e) {
+            var r = btn.getBoundingClientRect();
+            var x = e.clientX - r.left - r.width / 2;
+            var y = e.clientY - r.top - r.height / 2;
+            btn.style.transform = "translate(" + (x * 0.18).toFixed(1) + "px," + (y * 0.28).toFixed(1) + "px)";
+          });
+          btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
+        });
+      })();
+
+      // ---- Hero parallax on showcase cards ----
+      (function () {
+        if (reducedMotion) return;
+        var cards = document.querySelectorAll(".show-card[data-depth]");
+        if (!cards.length) return;
+        var ticking = false;
+        window.addEventListener("scroll", function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            var y = window.scrollY;
+            if (y < 1200) {
+              cards.forEach(function (c) {
+                var d = parseFloat(c.getAttribute("data-depth")) || 12;
+                c.style.transform = "translateY(" + (-y * d / 300).toFixed(1) + "px)";
+              });
+            }
+            ticking = false;
+          });
+        }, { passive: true });
+      })();
+
+      // ---- Scroll progress + nav shadow ----
+      (function () {
+        var bar = document.getElementById("progress");
+        var nav = document.getElementById("siteNav");
+        window.addEventListener("scroll", function () {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+          nav.classList.toggle("scrolled", window.scrollY > 10);
+        }, { passive: true });
+      })();
+
+      // ---- Mobile menu ----
+      var menuBtn = document.getElementById("menuBtn"), mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", function () {
+        var open = mobileMenu.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        menuBtn.textContent = open ? "Close" : "Menu";
+      });
+      mobileMenu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          mobileMenu.classList.remove("open");
+          menuBtn.textContent = "Menu";
+          menuBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // ---- Marquee: duplicate track for a seamless loop ----
+      var track = document.getElementById("marqueeTrack");
+      track.innerHTML += track.innerHTML;
+
+      // ---- Videos: click-to-play in place, sound only via the unmute button ----
+      (function () {
+        var tiles = document.querySelectorAll(".vtile");
+        if (!tiles.length) return;
+        function pauseOthers(except) {
+          tiles.forEach(function (t) {
+            if (t === except) return;
+            var v = t.querySelector("video");
+            if (v && !v.paused) v.pause();
+          });
+        }
+        function focusTile(tile) {
+          try { tile.focus({ preventScroll: true }); } catch (e) { tile.focus(); }
+        }
+        tiles.forEach(function (tile) {
+          var v = tile.querySelector("video");
+          var playBtn = tile.querySelector(".v-play");
+          var soundBtn = tile.querySelector(".v-sound");
+          var name = tile.getAttribute("data-title") || "video";
+          if (!v || !playBtn) return;
+          v.muted = true; // guaranteed: every video starts muted
+          // The tile itself is focusable: the video you start becomes the focused element
+          tile.tabIndex = 0;
+          tile.setAttribute("role", "group");
+          tile.setAttribute("aria-label", "Video — " + name + ". Press Enter to play or pause.");
+          function sync() { tile.classList.toggle("playing", !v.paused && !v.ended); }
+          function startVideo() { pauseOthers(tile); v.play(); focusTile(tile); }
+          playBtn.addEventListener("click", startVideo);
+          v.addEventListener("click", function () {
+            if (!v.paused) { v.pause(); } else { startVideo(); }
+          });
+          tile.addEventListener("keydown", function (e) {
+            if (e.target !== tile) return; // buttons inside keep their own behaviour
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              if (!v.paused) { v.pause(); } else { startVideo(); }
+            }
+          });
+          v.addEventListener("play", sync);
+          v.addEventListener("pause", sync);
+          v.addEventListener("ended", sync);
+          if (soundBtn) {
+            soundBtn.addEventListener("click", function (e) {
+              e.stopPropagation();
+              v.muted = !v.muted;
+              tile.classList.toggle("unmuted", !v.muted);
+              soundBtn.setAttribute("aria-pressed", v.muted ? "false" : "true");
+              soundBtn.setAttribute("aria-label", (v.muted ? "Unmute" : "Mute") + " video — " + name);
+              if (!v.muted && v.paused) { pauseOthers(tile); v.play(); focusTile(tile); }
+            });
+          }
+        });
+        // Pause any video that scrolls well out of view
+        if ("IntersectionObserver" in window) {
+          var vio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (!en.isIntersecting) {
+                var v = en.target.querySelector("video");
+                if (v && !v.paused) v.pause();
+              }
+            });
+          }, { threshold: 0.1 });
+          tiles.forEach(function (t) { vio.observe(t); });
+        }
+        // Navigating to the Videos section sends focus straight to the first video,
+        // so keyboard and screen-reader users land on the videos, not the page top
+        document.querySelectorAll('a[href="#videos"]').forEach(function (a) {
+          a.addEventListener("click", function () {
+            setTimeout(function () {
+              var first = document.querySelector(".vtile");
+              if (first) focusTile(first);
+            }, reducedMotion ? 80 : 700);
+          });
+        });
+      })();
+
+      // ---- Quote form → prefilled email ----
+      document.getElementById("quoteForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = document.getElementById("fName").value.trim();
+        var type = document.getElementById("fType").value;
+        var timeline = document.getElementById("fTimeline").value;
+        var budget = document.getElementById("fBudget").value;
+        var msg = document.getElementById("fMsg").value.trim();
+        var subject = encodeURIComponent("Project enquiry — " + type + (name ? " (" + name + ")" : ""));
+        var body = encodeURIComponent(
+          "Hi Adeel,\n\n" +
+          (name ? "Name: " + name + "\n" : "") +
+          "Project type: " + type + "\n" +
+          "Timeline: " + timeline + "\n" +
+          "Budget range: " + budget + "\n\n" +
+          (msg || "Tell me about your project…") + "\n"
+        );
+        window.location.href = "mailto:adeelgraphic786@gmail.com?subject=" + subject + "&body=" + body;
+      });
+    </script>
+  </body>
+</html>
