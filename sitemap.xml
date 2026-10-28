@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Adeelgraphic portfolio — single-page GitHub Pages site.
+       Upload this file to the SAME repo folder as index.html, so it is
+       served at https://adeelsiddique515.github.io/adeelgraphic/sitemap.xml
+       (verified 2026-10-28: that URL currently 404s, as does robots.txt).
+       Then submit the sitemap URL in Google Search Console. -->
+  <url>
+    <loc>https://adeelsiddique515.github.io/adeelgraphic/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
