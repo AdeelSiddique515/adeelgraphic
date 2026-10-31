@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adeelsiddique515.github.io/adeelgraphic/sitemap.xml
